@@ -17,9 +17,9 @@ public class SfgDiApplication {
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
-		String messageToLaysha = myController.sayHello();
+		String message = myController.sayHello();
 
-		System.out.println(messageToLaysha);
+		System.out.println(message);
 
 		System.out.println("Property");
 
