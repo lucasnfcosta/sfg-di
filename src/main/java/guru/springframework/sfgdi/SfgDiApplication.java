@@ -11,6 +11,7 @@ import guru.springframework.sfgdi.controllers.MyController;
 import guru.springframework.sfgdi.controllers.PetController;
 import guru.springframework.sfgdi.controllers.PropertyInjectedController;
 import guru.springframework.sfgdi.controllers.SetterInjectedController;
+import guru.springframework.sfgdi.datasource.FakeDataSource;
 
 @ComponentScan({"guru.springframework.sfgdi", "guru.springframework.pets"})
 @SpringBootApplication
@@ -50,6 +51,11 @@ public class SfgDiApplication {
 		PetController petController = (PetController) ctx.getBean("petController");
 
 		System.out.println(petController.whichPetIsTheBest());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getJdbcUrl());
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
 	}
 
 }

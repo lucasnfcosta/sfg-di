@@ -1,6 +1,5 @@
 package guru.springframework.sfgdi.controllers;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import guru.springframework.pets.PetService;
@@ -9,7 +8,7 @@ import guru.springframework.pets.PetService;
 public class PetController {
     private final PetService petService;
 
-    public PetController(@Qualifier("petService") PetService petService) {
+    public PetController(PetService petService) {
         this.petService = petService;
     }
 
