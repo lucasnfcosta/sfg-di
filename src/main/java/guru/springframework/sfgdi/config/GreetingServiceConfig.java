@@ -21,11 +21,11 @@ import guru.springframework.sfgdi.services.SetterGreetingService;
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${guru.username}") String username, @Value("${guru.password}") String password, @Value("${guru.jdbcurl}") String jdbcurl) {
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setJdbcUrl(jdbcurl);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setUsername(username);
+        fakeDataSource.setJdbcUrl(sfgConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
+        fakeDataSource.setUsername(sfgConstructorConfig.getJdbcUrl());
 
         return fakeDataSource;
     }
